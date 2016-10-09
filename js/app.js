@@ -1,222 +1,107 @@
 $(function(){
   var $grid =$('.grid');
+  var $boardLength =$("li");
   var $whatColor= { 1:"black", 2:"darkTeal", 3:"lightPink", 4:"purple", 5:"lightPurple", 6:"skyBlue", 7:"lightBabyBlue", 8:"rustyRed", 9:"brown",  10:"brightGreen", 11:"teal", 12:"bubblegum",  13:"blue", 14:"orangeBrown", 15:"yellow"};
+  var $black = $('.black');
   var $create_grid =$(".create_grid");
-  // var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*10)]+'></li>';
+  var $small = $("#small");
+  var $medium =$("#medium");
+  var $large =$("#large");
+  var $bubblegumCount = 0;
+  var $clickme = $(".clickme");
+  var $play= $(".play");
+  var $about = $('.about');
+
+// click all the black tiles
+// if time =0 reshuffle remaining tiles;
+// 3 lives;
 
 
-// (Math.ceil(Math.random()*10))
+$small.on('click', function (i){
+  $about.html("Colorblindness");
+  console.log("clicked small");
+    for (i=0; i<100; i++){
+      var newSquare ='<li class='+$whatColor[Math.ceil(Math.random()*5)]+'></li>';
+      $grid.append(newSquare);
 
-  //"teal", "bubblegum",  "blue", "orangeBrown","yellow"
+    // for (j=0; j<5, j++){
+    //   .toggleClass
+    // }
+      }
+    });
 
-$create_grid.on('click', function (i){
+$medium.on('click', function (i){
+  $about.html("Colorblindness medium");
   console.log("clicked");
-  for (i=0; i<100; i++){
-    var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
-    $grid.append(newSquare);
-    // $grid.css("height", "10%").css("width", "10%");
-    }
+    for (i=0; i<400; i++){
+      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*10)]+'></li>';
+      $clickme ='Math.ceil(Math.random()*25)';
+      $grid.append(newSquare);
+      }
+    });
+
+$large.on('click', function (i){
+  $about.html("Colorblindness large");
+  console.log("clicked");
+    for (i=0; i<2500; i++){
+      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
+      $grid.append(newSquare);
+      }
+    });
+
+// removes individual tiles that are black
+  $grid.on('click', '.black', function(i){
+      $(this).hide(300 * i+100);
   });
 
-// function animateBackground(){
-//     $('body').({
-//       time:3000,
-//       colors: ['black','darkgrey','darkblue', 'cyan','black','darkgrey','cyan','darkblue','cyan'],
-//       speed:"fast"
-//       }
-//       );
-//     };
-
-
-
-
-  // function create8X8 () {
-  //       for (i=0;i<64;i++){
-  //         var newSquare = "<li id="+parseInt(i)+"></li>";
-  //         $(".grid").append(newSquare);
-  //       }
-
-  // $(".create_grid").on('click', function(i){
-  //   for(i=0; i<100; i++){//
-  //   var newSquare= "<li class="red"></li>";
-  //   $(".grid").append(newSquare);
-  //   // $(".red").on('click', function(){
-  //   //     $(".red").fadeOut(300 * i+100);
-  //   //   };
-  //   }
-  // });
-  //
-
-
-  $(".red").on('click', function(i){
-    // var $lis = $(this).parents().children();
-    // $lis.each(function(i, li){
-      $(".red").fadeOut(300 * i+100);
-    // });
+  $grid.on('click', '.darkTeal', function(i){
+      $(".darkTeal").fadeOut(300 * i+100);
   });
-
-  $(".blue").on('click', function(i){
-    // var $lis = $(this).parents().children();
-    // $lis.each(function(i, li){
+  $grid.on('click', '.lightPink', function(i){
+      $(".lightPink").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.bubblegum', function(i){
+      $(".bubblegum").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.purple', function(i){
+      $(".purple").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.lightPurple', function(i){
+      $(".lightPurple").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.skyBlue', function(i){
+      $(".skyBlue").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.lightBabyBlue', function(i){
+      $(".lightBabyBlue").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.rustyRed', function(i){
+      $(".rustyRed").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.brown', function(i){
+      $(".brown").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.brightGreen', function(i){
+      $(".brightGreen").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.teal', function(i){
+      $(".teal").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.bubblegum', function(i){
+      $(".bubblegum").fadeOut(300 * i+100);
+  });
+  $grid.on('click', '.blue', function(i){
       $(".blue").fadeOut(300 * i+100);
-    // });
   });
-
-  $(".green").on('click', function(i){
-    // var $lis = $(this).parents().children();
-    // $lis.each(function(i, li){
-      $(".green").fadeOut(300 * i+100);
-    // });
+  $grid.on('click', '.orangeBrown', function(i){
+      $(".orangeBrown").fadeOut(300 * i+100);
   });
-
-  $(".black").on('click', function(i){
-    // var $lis = $(this).parents().children();
-    // $lis.each(function(i, li){
-      $(".black").fadeOut(300 * i+100);
-    // });
+  $grid.on('click', '.yellow', function(i){
+      $(".yellow").fadeOut(300 * i+100);
   });
-
-  $(".orange").on('click', function(i){
-    // var $lis = $(this).parents().children();
-    // $lis.each(function(i, li){
-      $(".orange").fadeOut(300 * i+100);
-    // });
-  });
-
-
-
 
 });
 
-
-// $(function(){
-//   var $grid = $(".grid");
-//   var $grid10color = $(".grid10color");
-//
-//   $grid10color.on("click", function(){
-//     console.log(clicked);
-//     // for(i=0; i<100; i++){
-//     //   var newSquare = "<li id="+parseInt(i)+"></li>";
-//     //   $grid10color.append(newSquare);
-//     }
-//   });
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $(document).ready(function() {
-//
-//   console.log("jQuery load pass");
-//
-//
-//   var col1 = 0 ;
-//   var col2 = 0 ;
-//
-//
-// row_length =[2,3,4,5,6,7,8,9,10];
-//
-// number_of_squares = row_length[i]**;
-//
-// if (number_of_squares%2 === 1){
-//   var col1= ceil(row_length/2);
-//   var col2 = floor(row_length/2);
-// } else (){
-//   var col1 = row_length/2 +1;
-//   var col2 = row_length - col1;
-// }
-//
-//
-// });
-
-// $(document).ready(function() {
-//
-//   //declare all jQuery DOM variables here.
-//   var $tileArray = $("li");
-//   var $scoreBoard = $("#score");
-//   var $reset = $("#reset");
-//
-//   var $selectThree = $("#threeC");
-//   var $selectFour = $("#fourC");
-//   var $selectFive = $("#fiveC");
-//   var $selectSix = $("#sixC");
-//   var $selectSeven = $("#sevenC");
-//   var $selectEight = $("#eightC");
-//   var $p1score = $("#afterReset");
-//   var $gridSizeSelector = $(".gridSizeSelector");
-//   var $welcomeMsg = $('#welcomeMessage');
-//   var $playerScoreboard = $("#playerScoreboard");
-//   var $instructions = $("#instructions");
-//   var $instr_text = $('#howtoplaytext');
-//
-//   //declare other variables here
-//   var row_length = Math.sqrt($tileArray.length);
-//   var clickedIndex=0;
-//   // var greenTileCount = 0;
-//   // var turnCounter = 0;
-//   var player1score = 0;
-//   // var startingClicks = 0;
-//   // var startingClicksIndex = [8,15,35,50,75,100];
-//   var animateRelTileArray = [];
-//   // var livesCounter = 3;
-//   var tilesToGo = 0;
-//   // var grid3score = 0, grid4score = 0,grid5score = 0, grid6score = 0, grid7score = 0, grid8score = 0;
-//
-// // shuffle function https://css-tricks.com/snippets/jquery/shuffle-dom-elements/
-// // to call
-// // $('ul#list li').shuffle();
-//   $.fn.shuffle = function() {
-//
-//         var allElems = this.get(),
-//             getRandom = function(max) {
-//                 return Math.floor(Math.random() * max);
-//             },
-//             shuffled = $.map(allElems, function(){
-//                 var random = getRandom(allElems.length),
-//                     randEl = $(allElems[random]).clone(true)[0];
-//                 allElems.splice(random, 1);
-//                 return randEl;
-//            });
-//
-//         this.each(function(i){
-//             $(this).replaceWith($(shuffled[i]));
-//         });
-//
-//         return $(shuffled);
-//
-//     };
-//
-// })(jQuery);
-//
-//
-//
-//
 //   $instr_text.hide();
 //
 //  //main code block. runs on each lite click.

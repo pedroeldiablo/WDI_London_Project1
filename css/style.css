@@ -7,6 +7,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+
+}
+
 .grid {
   height: 500px;
   width: 500px;
@@ -15,7 +19,34 @@ h1 {
   list-style: none;
 }
 
-.grid li {
+/*li {
+  height: 10%;
+  width: 10%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  /*border-radius: 100%;
+}*/
+
+/*li {
+  height: 5%;
+  width: 5%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+}*/
+
+li {
+  height: 2%;
+  width: 2%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+}
+
+.smallpixel {
   /*width: 100px;
   height: 100px;*/
   height: 10%;
@@ -23,10 +54,11 @@ h1 {
   float: left;
   margin: 0;
   padding: 0;
-  border-radius: 100%;
+  /*border-radius: 100%;*/
 }
 
-/*.black { background-color:rgb (0,0,0); },*/
+/*15 color palette safe for most colorblindness conditions teal, bubblegum, blue and orangeBrown not suitable for tritanopia*/
+
 .black {
   background-color: rgb(0,0,0);
 }
@@ -35,7 +67,7 @@ h1 {
 }
 
 .teal  {
-  background-color: rgb(255, 109,182);
+  background-color: rgb(0, 146,146);
 }
 
 .bubblegum {
