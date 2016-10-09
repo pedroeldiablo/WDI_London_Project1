@@ -1,18 +1,51 @@
 $(function(){
   var $grid =$('.grid');
+  var $whatColor= { 1:"black", 2:"darkTeal", 3:"lightPink", 4:"purple", 5:"lightPurple", 6:"skyBlue", 7:"lightBabyBlue", 8:"rustyRed", 9:"brown",  10:"brightGreen", 11:"teal", 12:"bubblegum",  13:"blue", 14:"orangeBrown", 15:"yellow"};
   var $create_grid =$(".create_grid");
-  var newSquare= '<li class="red"></li>';
+  // var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*10)]+'></li>';
+
+
+// (Math.ceil(Math.random()*10))
+
+  //"teal", "bubblegum",  "blue", "orangeBrown","yellow"
+
+$create_grid.on('click', function (i){
+  console.log("clicked");
+  for (i=0; i<100; i++){
+    var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
+    $grid.append(newSquare);
+    // $grid.css("height", "10%").css("width", "10%");
+    }
+  });
+
+// function animateBackground(){
+//     $('body').({
+//       time:3000,
+//       colors: ['black','darkgrey','darkblue', 'cyan','black','darkgrey','cyan','darkblue','cyan'],
+//       speed:"fast"
+//       }
+//       );
+//     };
+
+
+
+
   // function create8X8 () {
   //       for (i=0;i<64;i++){
   //         var newSquare = "<li id="+parseInt(i)+"></li>";
   //         $(".grid").append(newSquare);
   //       }
 
-  $(".create_grid").on('click', function(i){
-    // var newSquare= "<li class="red"></li>";
-    $(".grid").append(newSquare);
-  });
-
+  // $(".create_grid").on('click', function(i){
+  //   for(i=0; i<100; i++){//
+  //   var newSquare= "<li class="red"></li>";
+  //   $(".grid").append(newSquare);
+  //   // $(".red").on('click', function(){
+  //   //     $(".red").fadeOut(300 * i+100);
+  //   //   };
+  //   }
+  // });
+  //
 
 
   $(".red").on('click', function(i){
