@@ -1,6 +1,6 @@
 $(function(){
   var $grid =$('.grid');
-  var $boardLength =$("li");
+  var $boardLength =$("li").length;
   var $whatColor= { 1:"black", 2:"darkTeal", 3:"lightPink", 4:"purple", 5:"lightPurple", 6:"skyBlue", 7:"lightBabyBlue", 8:"rustyRed", 9:"brown",  10:"brightGreen", 11:"teal", 12:"bubblegum",  13:"blue", 14:"orangeBrown", 15:"yellow"};
   var $black = $('.black');
   var $create_grid =$(".create_grid");
@@ -11,6 +11,8 @@ $(function(){
   var $clickme = $(".clickme");
   var $play= $(".play");
   var $about = $('.about');
+  var $score= $('.score');
+  var $livescore = $('.black').length;
 
 // click all the black tiles
 // if time =0 reshuffle remaining tiles;
@@ -18,11 +20,12 @@ $(function(){
 
 
 $small.on('click', function (i){
-  $about.html("Colorblindness");
+  $about.html("Color blindness or Color Vision Deficit affects around 8% of men");
   console.log("clicked small");
     for (i=0; i<100; i++){
       var newSquare ='<li class='+$whatColor[Math.ceil(Math.random()*5)]+'></li>';
       $grid.append(newSquare);
+      // console.log('$boardLength');
 
     // for (j=0; j<5, j++){
     //   .toggleClass
@@ -44,18 +47,36 @@ $large.on('click', function (i){
   $about.html("Colorblindness large");
   console.log("clicked");
     for (i=0; i<2500; i++){
-      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
+      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*14)]+'></li>';
       $grid.append(newSquare);
+      console.log($('.black').length);
       }
     });
 
+
+
+// set the hidden elements
+$play.on('click', function(i){
+  // for (j=0; j <$whatColor.length; j++){
+   $score.html($livescore);
+   console.log($whatColor[1]);
+   console.log($('.black').length);
+   console.log($('.darkTeal').length);
+   console.log($('.bubblegum').length);
+  // }
+});
+
 // removes individual tiles that are black
   $grid.on('click', '.black', function(i){
-      $(this).hide(300 * i+100);
+      $livescore--;
+      $score.html($('.black').length);
+      $(this).remove(300 * i+100);
+      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*14)]+'></li>';
+      $grid.append(newSquare);
   });
 
   $grid.on('click', '.darkTeal', function(i){
-      $(".darkTeal").fadeOut(300 * i+100);
+      $(".darkTeal").remove(300 * i+100);
   });
   $grid.on('click', '.lightPink', function(i){
       $(".lightPink").fadeOut(300 * i+100);
