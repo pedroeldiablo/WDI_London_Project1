@@ -7,16 +7,26 @@ $(function(){
   var $small = $("#small");
   var $medium =$("#medium");
   var $large =$("#large");
-  var $bubblegumCount = 0;
-  var $clickme = $(".clickme");
+  // var $bubblegumCount = 0;
+  // var $clickme = $(".clickme");
   var $play= $(".play");
   var $about = $('.about');
   var $score= $('.score');
   var $livescore = $('.black').length;
+  var $countdown = $('.countdown');
 
 // click all the black tiles
 // if time =0 reshuffle remaining tiles;
 // 3 lives;
+
+var $counter = 30;
+var $interval = setInterval(function() {
+    $counter--;
+    $countdown.html($counter+" seconds");
+    if ($counter === 0) {
+        clearInterval($interval);
+    }
+}, 1000);
 
 
 $small.on('click', function (i){
@@ -40,6 +50,7 @@ $medium.on('click', function (i){
       var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*10)]+'></li>';
       $clickme ='Math.ceil(Math.random()*25)';
       $grid.append(newSquare);
+      $score.html($('.black').length);
       }
     });
 
@@ -47,7 +58,7 @@ $large.on('click', function (i){
   $about.html("Colorblindness large");
   console.log("clicked");
     for (i=0; i<2500; i++){
-      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*14)]+'></li>';
+      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
       $grid.append(newSquare);
       console.log($('.black').length);
       }
@@ -56,28 +67,33 @@ $large.on('click', function (i){
 
 
 // set the hidden elements
-$play.on('click', function(i){
-  // for (j=0; j <$whatColor.length; j++){
-   $score.html($livescore);
-   console.log($whatColor[1]);
-   console.log($('.black').length);
-   console.log($('.darkTeal').length);
-   console.log($('.bubblegum').length);
-  // }
-});
+// $play.on('click', function(i){
+//   // for (j=0; j <$whatColor.length; j++){
+//    $score.html($livescore);
+//    console.log($whatColor[1]);
+//    console.log($('.black').length);
+//    console.log($('.darkTeal').length);
+//    console.log($('.bubblegum').length);
+//   // }
+// });
 
 // removes individual tiles that are black
   $grid.on('click', '.black', function(i){
-      $livescore--;
-      $score.html($('.black').length);
+      // $livescore--;
       $(this).remove(300 * i+100);
       var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*14)]+'></li>';
       $grid.append(newSquare);
+      $score.html($('.black').length);
   });
 
   $grid.on('click', '.darkTeal', function(i){
-      $(".darkTeal").remove(300 * i+100);
+      $(".darkTeal").fadeOut(300 * i+100);
+      for (i=0; i< $('.darkTeal').length; i++){
+        var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
+        $grid.append(newSquare);
+      }
   });
+
   $grid.on('click', '.lightPink', function(i){
       $(".lightPink").fadeOut(300 * i+100);
   });
