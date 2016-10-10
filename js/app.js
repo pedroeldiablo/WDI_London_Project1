@@ -1,6 +1,6 @@
 $(function(){
   var $grid =$('.grid');
-  var $boardLength =$("li").length;
+  // var $boardLength =$("li").length;
   var $whatColor= { 1:"black", 2:"darkTeal", 3:"lightPink", 4:"purple", 5:"lightPurple", 6:"skyBlue", 7:"lightBabyBlue", 8:"rustyRed", 9:"brown",  10:"brightGreen", 11:"teal", 12:"bubblegum",  13:"blue", 14:"orangeBrown", 15:"yellow"};
   var $black = $('.black');
   var $create_grid =$(".create_grid");
@@ -14,17 +14,22 @@ $(function(){
   var $score= $('.score');
   var $livescore = $('.black').length;
   var $countdown = $('.countdown');
+  var $body =$('body');
+  var $audio =$('#audio');
+  var $li =$('li');
 
 // click all the black tiles
 // if time =0 reshuffle remaining tiles;
 // 3 lives;
 
-var $counter = 30;
-var $interval = setInterval(function() {
+  var $counter = 30;
+  var $interval = setInterval(function() {
     $counter--;
     $countdown.html($counter+" seconds");
     if ($counter === 0) {
         clearInterval($interval);
+        $body.css({'background-color': 'red'});
+
     }
 }, 1000);
 
@@ -33,8 +38,16 @@ $small.on('click', function (i){
   $about.html("Color blindness or Color Vision Deficit affects around 8% of men");
   console.log("clicked small");
     for (i=0; i<100; i++){
-      var newSquare ='<li class='+$whatColor[Math.ceil(Math.random()*5)]+'></li>';
-      $grid.append(newSquare);
+      var $newSquare ='<li class='+$whatColor[Math.ceil(Math.random()*5)]+'></li>';
+      $grid.append($newSquare);
+    //   var $counter = 30;
+    //   var $interval = setInterval(function() {
+    //     $counter--;
+    //     $countdown.html($counter+" seconds");
+    //     if ($counter === 0) {
+    //         clearInterval($interval);
+    //     }
+    // }, 1000);
       // console.log('$boardLength');
 
     // for (j=0; j<5, j++){
@@ -45,11 +58,15 @@ $small.on('click', function (i){
 
 $medium.on('click', function (i){
   $about.html("Colorblindness medium");
+  console.log($li);
+  // $('li').css({'height': '1%'});
+  // $li.css({'width': '1%'});
   console.log("clicked");
     for (i=0; i<400; i++){
-      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*10)]+'></li>';
+      var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*10)]+'></li>';
       $clickme ='Math.ceil(Math.random()*25)';
-      $grid.append(newSquare);
+      $grid.append($newSquare);
+      $('li').css({'height': '5%', 'width': '5%'});
       $score.html($('.black').length);
       }
     });
@@ -58,39 +75,28 @@ $large.on('click', function (i){
   $about.html("Colorblindness large");
   console.log("clicked");
     for (i=0; i<2500; i++){
-      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
-      $grid.append(newSquare);
-      console.log($('.black').length);
+      var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
+      $grid.append($newSquare);
+      $('li').css({'height': '2%', 'width': '2%'});
       }
     });
 
 
-
-// set the hidden elements
-// $play.on('click', function(i){
-//   // for (j=0; j <$whatColor.length; j++){
-//    $score.html($livescore);
-//    console.log($whatColor[1]);
-//    console.log($('.black').length);
-//    console.log($('.darkTeal').length);
-//    console.log($('.bubblegum').length);
-//   // }
-// });
-
-// removes individual tiles that are black
+// removes individual tiles that are black and adds a new random image at the bottom of the list updates the timer for correct choices
   $grid.on('click', '.black', function(i){
       // $livescore--;
       $(this).remove(300 * i+100);
-      var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*14)]+'></li>';
-      $grid.append(newSquare);
+      var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*14)]+'></li>';
+      $grid.append($newSquare);
       $score.html($('.black').length);
+      $counter++;
   });
 
   $grid.on('click', '.darkTeal', function(i){
       $(".darkTeal").fadeOut(300 * i+100);
       for (i=0; i< $('.darkTeal').length; i++){
-        var newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
-        $grid.append(newSquare);
+        var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
+        $grid.append($newSquare);
       }
   });
 
