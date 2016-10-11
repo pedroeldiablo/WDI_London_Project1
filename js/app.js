@@ -1,6 +1,8 @@
 $(function(){
   var $grid =$('.grid');
   var $whatColor= { 1:"yellow", 2:"darkTeal", 3:"lightPink", 4:"purple", 5:"lightPurple", 6:"skyBlue", 7:"lightBabyBlue", 8:"rustyRed", 9:"brown",  10:"brightGreen", 11:"teal", 12:"bubblegum",  13:"blue", 14:"orangeBrown", 15:"black"};
+  var $redvsgreen={};
+  var $bluevsred={};
   var $black = $('.black');
   var $create_grid =$(".create_grid");
   // var $medium =$("#medium");
@@ -15,36 +17,47 @@ $(function(){
   var $updateScore = $('li').length;
   var $counter =0;
 
+  // about = "colors are disappearing. try to keep them alive. click black spots and each time you do new spots will be added at the top of the board."
+// https://en.wikipedia.org/wiki/Color_blindness#Diagnosis
+// https://en.wikipedia.org/wiki/Ishihara_test
 $create_grid.on('click', function (i){
   $grid.css({"background-color": "white"});
-  $about.html("Quickly quickly");
-  $("h2.create_grid").toggleClass("reset");
-  $(".reset").html("reset");
+  $about.html("Quickly quickly.");
+  // $("#medium").removeClass("create_grid").addClass("reset");
+  // $(".reset").html("reset");
   var $blackSquare= '<li class=black></li>';
   $grid.prepend($blackSquare);
     for (i=0; i<399; i++){
       var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
       $clickme ='Math.ceil(Math.random()*25)';
       $grid.append($newSquare);
-      $('li').css({'height': '25px', 'width': '25px'});
-      }
-
+    }
    var eatdot = setInterval(function(){
-       $('li').last().remove();
+     var dots = $(".black").length;
+       if (dots > 0){
+         $('li').last().remove();
+         console.log("eating");
+       }else {
+         clearInterval(eatdot);
+       }
      },100);
-    var $dropclass = setInterval(function() {
+    var dropclass = setInterval(function() {
+      var dots = $(".black").length;
+        if (dots > 0){
           $colorToRemove = '.'+$whatColor[Math.ceil(Math.random()*14)];
           console.log($colorToRemove);
           $($colorToRemove).fadeOut();
-        },1500);
-    });
+        }else{
+          clearInterval(dropclass);
+        }
 
+      },1500);
+    });
 // removes individual tiles that are black and adds a new black tile plus up to 5 random tiles at the start of the list
 
   $grid.on('click', '.black', function(i){
       $livescore = $('.black').length;
       $playerscore = $playerscore + $livescore + 100;
-      console.log($playerscore);
       $scoreboard.html($playerscore);
       $(this).remove(300 * i+100);
       var $blackSquare= '<li class=black></li>';
@@ -53,8 +66,8 @@ $create_grid.on('click', function (i){
             var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
             $grid.prepend($newSquare);
           }
-
       });
+
   });
   // var $small = $("#small");
   // var $large =$("#large");
