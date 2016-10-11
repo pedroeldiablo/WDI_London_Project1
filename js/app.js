@@ -1,11 +1,13 @@
 $(function(){
   var $grid =$('.grid');
   var $whatColor= { 1:"yellow", 2:"darkTeal", 3:"lightPink", 4:"purple", 5:"lightPurple", 6:"skyBlue", 7:"lightBabyBlue", 8:"rustyRed", 9:"brown",  10:"brightGreen", 11:"teal", 12:"bubblegum",  13:"blue", 14:"orangeBrown", 15:"black"};
-  var $redvsgreen={};
-  var $bluevsred={};
+  var $redvsgreen= { 1:"darkgreen26", 2:"midgreen37", 3:"mildgreen47", 4: "lightgreen75", 5:"darkred31", 6:"midred40", 7:"darksalmon42", 8:"peachy68", 9:"black"};
+  // to be added at a later date
+  // var $bluevsred={};
   var $black = $('.black');
   var $create_grid =$(".create_grid");
-  // var $medium =$("#medium");
+  var $medium =$("#medium");
+  var $redGreen=$("#redGreen");
   var $about = $('.about');
   var $score= $('.score');
   var $scoreboard = $('.scoreboard');
@@ -20,7 +22,23 @@ $(function(){
   // about = "colors are disappearing. try to keep them alive. click black spots and each time you do new spots will be added at the top of the board."
 // https://en.wikipedia.org/wiki/Color_blindness#Diagnosis
 // https://en.wikipedia.org/wiki/Ishihara_test
-$create_grid.on('click', function (i){
+var gameOver =(function (){
+  $("body").css({"background-color": "red"});
+  $($grid).css({"background-color":"red"});
+  $($scoreboard).css({"font-size":"100px"});
+  $($grid).empty();
+  $medium.show();
+  // $medium.
+});
+
+
+$medium.on('click', function (i){
+  $("body").css({"background-color": "white"});
+  $($grid).css({"background-color":"white"});
+  $($scoreboard).css({"font-size":"25px"});
+  $playerscore = 0;
+  $scoreboard.html($playerscore);
+  $medium.hide();
   $grid.css({"background-color": "white"});
   $about.html("Quickly quickly.");
   // $("#medium").removeClass("create_grid").addClass("reset");
@@ -29,7 +47,7 @@ $create_grid.on('click', function (i){
   $grid.prepend($blackSquare);
     for (i=0; i<399; i++){
       var $newSquare= '<li class='+$whatColor[Math.ceil(Math.random()*15)]+'></li>';
-      $clickme ='Math.ceil(Math.random()*25)';
+      // $clickme ='Math.ceil(Math.random()*25)';
       $grid.append($newSquare);
     }
    var eatdot = setInterval(function(){
@@ -37,7 +55,9 @@ $create_grid.on('click', function (i){
        if (dots > 0){
          $('li').last().remove();
          console.log("eating");
+
        }else {
+         gameOver();
          clearInterval(eatdot);
        }
      },100);
@@ -67,6 +87,57 @@ $create_grid.on('click', function (i){
             $grid.prepend($newSquare);
           }
       });
+
+  //
+  //     $create_grid.on('click', function (i){
+  //       $grid.css({"background-color": "white"});
+  //       $about.html("Quickly quickly.");
+  //       // $("#medium").removeClass("create_grid").addClass("reset");
+  //       // $(".reset").html("reset");
+  //       var $blackSquare= '<li class=black></li>';
+  //       $grid.prepend($blackSquare);
+  //         for (i=0; i<399; i++){
+  //           var $newSquare= '<li class='+$redvsgreen[Math.ceil(Math.random()*9)]+'></li>';
+  //           $clickme ='Math.ceil(Math.random()*25)';
+  //           $grid.append($newSquare);
+  //         }
+  //        var eatdot = setInterval(function(){
+  //          var dots = $(".black").length;
+  //            if (dots > 0){
+  //              $('li').last().remove();
+  //              console.log("eating");
+  //
+  //            }else {
+  //              gameOver();
+  //              clearInterval(eatdot);
+  //            }
+  //          },100);
+  //         var dropclass = setInterval(function() {
+  //           var dots = $(".black").length;
+  //             if (dots > 0){
+  //               $colorToRemove = '.'+$redvsgreen[Math.ceil(Math.random()*8)];
+  //               console.log($colorToRemove);
+  //               $($colorToRemove).fadeOut();
+  //             }else{
+  //               clearInterval(dropclass);
+  //             }
+  //
+  //           },1500);
+  //         });
+  //     // removes individual tiles that are black and adds a new black tile plus up to 5 random tiles at the start of the list
+  //
+  //       $grid.on('click', '.black', function(i){
+  //           $livescore = $('.black').length;
+  //           $playerscore = $playerscore + $livescore + 100;
+  //           $scoreboard.html($playerscore);
+  //           $(this).remove(300 * i+100);
+  //           var $blackSquare= '<li class=black></li>';
+  //           $grid.prepend($blackSquare);
+  //           for (i=0; i<Math.ceil(Math.random()*5); i++){
+  //                 var $newSquare= '<li class='+$redvsgreen[Math.ceil(Math.random()*9)]+'></li>';
+  //                 $grid.prepend($newSquare);
+  //               }
+  //           });
 
   });
   // var $small = $("#small");

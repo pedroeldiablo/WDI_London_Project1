@@ -13,7 +13,7 @@ h1 {
 }
 
 h2 {
-  display: inline-block;
+  /*display: inline-block;*/
   font-size: 50px;
   font-weight: lighter;
   margin: 0;
@@ -142,4 +142,36 @@ li {
 
 .yellow {
   background-color: rgb(255, 255, 109);
+}
+
+.darkgreen26 {
+  background-color: rgb(61,71,2);
+}
+
+.midgreen37 {
+  background-color: rgb(89,103,13);
+}
+
+.mildgreen47 {
+  background-color: rgb(113, 129, 32);
+}
+
+.lightgreen75 {
+  background-color: rgb(190,201,117);
+}
+
+.darkred31 {
+  background-color: rgb(146, 45,52);
+}
+
+.midred40 {
+  background-color: rgb(170, 72, 64);
+}
+
+.darksalmon42{
+  background-color: rgb(181, 74, 67);
+}
+
+.peachy68 {
+  background-color: rgb(253, 147, 90);
 }
