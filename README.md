@@ -9,7 +9,7 @@ The idea for Seeing Red started with the idea of developing a vision based game.
 
 On looking into possible options for the color scheme I encountered research into color blindness, color vision deficiency or CVD and how to make a more accessible web.
 
-The web is a very visual environment, but for a significant portion of the population ([around 8% of men and 1 in 200 women]: http://www.colourblindawareness.org/colour-blindness/) a significant amount of this information is hard to distinguish.
+The web is a very visual environment, but for a significant portion of the population ([around 8% of men and 1 in 200 women] (http://www.colourblindawareness.org/colour-blindness/)) a significant amount of this information is hard to distinguish.
 
 At this time I decided to look into the possibility of turning this into a more practical application.
 
