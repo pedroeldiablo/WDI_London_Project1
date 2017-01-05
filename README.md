@@ -19,7 +19,7 @@ https://en.wikipedia.org/wiki/Color_blindness#Diagnosis
 
 https://en.wikipedia.org/wiki/Ishihara_test  
 
-![alt text]("/images/Ishihara-12.gif "Logo Title Text 1")
+![alt text](/images/Ishihara-12.gif "Logo Title Text 1")
 
 In the standard version of the game the color palette has been selected to be tonal if viewed in grey scale. This means that for the majority of users they will be able to play regardless of any CVD.
 
