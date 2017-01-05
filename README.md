@@ -3,7 +3,7 @@
 
 ### Play the game [here](https://seeing-red.herokuapp.com/)
 
-![alt text](/images/SeeingRed1.png "SeeingRed Game in action")
+![alt text](/images/SeeingRed2.png "SeeingRed Game in action")
 
 
 ##Overview
