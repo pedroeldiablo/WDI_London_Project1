@@ -1,7 +1,7 @@
 # SeeingRed
 ## A JS Game
 
-### Play the game [here]:https://seeing-red.herokuapp.com/
+### Play the game [here](https://seeing-red.herokuapp.com/)
 
 ##Overview
 
@@ -16,7 +16,10 @@ At this time I decided to look into the possibility of turning this into a more 
 The design of the game play is built around colored spots. These echo the ink dots that are the foundation for the most commonly used test for color blindness the Ishihara Test.
 
 https://en.wikipedia.org/wiki/Color_blindness#Diagnosis
+
 https://en.wikipedia.org/wiki/Ishihara_test  
+
+![alt text]("/images/Ishihara-12.gif "Logo Title Text 1")
 
 In the standard version of the game the color palette has been selected to be tonal if viewed in grey scale. This means that for the majority of users they will be able to play regardless of any CVD.
 
